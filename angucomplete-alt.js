@@ -143,6 +143,12 @@
         }
         else {
           scope.selectedObject = value;
+          if (scope.selectedObjectField && scope.selectedObjectField !== '') {
+            scope.selectedObject = value[scope.selectedObjectField];
+          }
+          else{
+            scope.selectedObject = value;
+          }
         }
 
         if (value) {
@@ -755,6 +761,7 @@
         remoteUrlDataField: '@',
         titleField: '@',
         descriptionField: '@',
+        selectedObjectField:'@',
         imageField: '@',
         inputClass: '@',
         pause: '@',
