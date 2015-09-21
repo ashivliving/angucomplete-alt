@@ -483,16 +483,25 @@
       }
 
       function getLocalResults(str) {
-        var i, match, s, value,
-            searchFields = scope.searchFields.split(','),
-            matches = [];
+        var i, match, s, value,matches = [],searchFields;
+        if(scope.searchFields && scope.searchFields !=='')
+            searchFields = scope.searchFields.split(',');
+        else
+            searchFields = []; 
 
         for (i = 0; i < scope.localData.length; i++) {
           match = false;
 
-          for (s = 0; s < searchFields.length; s++) {
-            value = extractValue(scope.localData[i], searchFields[s]) || '';
-            match = match || (value.toString().toLowerCase().indexOf(str.toString().toLowerCase()) >= 0);
+          if(searchFields.length > 0){
+
+            for (s = 0; s < searchFields.length; s++) {
+              value = extractValue(scope.localData[i], searchFields[s]) || '';
+              match = match || (value.toString().toLowerCase().indexOf(str.toString().toLowerCase()) >= 0);
+            }            
+          }
+          else{
+              value = scope.localData[i];
+              match = (value.toString().toLowerCase().indexOf(str.toString().toLowerCase()) >= 0);
           }
 
           if (match) {
@@ -541,6 +550,9 @@
           for (i = 0; i < responseData.length; i++) {
             if (scope.titleField && scope.titleField !== '') {
               text = formattedText = extractTitle(responseData[i]);
+            }
+            else{
+              text = formattedText = responseData[i];
             }
 
             description = '';
