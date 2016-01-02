@@ -93,6 +93,7 @@
           mousedownOn = event.target.className;
         }
       });
+      console.log(scope.remoteUrlDataFilter);
 
       scope.currentIndex = scope.focusFirst ? 0 : null;
       scope.searching = false;
@@ -433,6 +434,12 @@
           httpCanceller.resolve();
         }
       }
+      function serialize(obj) {
+        var str = [];
+        for(var p in obj)
+           str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        return str.join("&");
+      }
 
       function getRemoteResults(str) {
         var params = {},
@@ -441,6 +448,7 @@
           params = {params: scope.remoteUrlRequestFormatter(str)};
           url = scope.remoteUrl;
         }
+        url = url + '&' + serialize(scope.remoteUrlDataFilter);
         if (!!scope.remoteUrlRequestWithCredentials) {
           params.withCredentials = true;
         }
@@ -789,7 +797,8 @@
         focusOut: '&',
         focusIn: '&',
         inputName: '@',
-        focusFirst: '@'
+        focusFirst: '@',
+        remoteUrlDataFilter:'='
       },
       templateUrl: function(element, attrs) {
         return attrs.templateUrl || TEMPLATE_URL;
