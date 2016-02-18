@@ -145,7 +145,7 @@
         else {
           scope.selectedObject = value;
           if (scope.selectedObjectField && scope.selectedObjectField !== '') {
-            scope.selectedObject = value[scope.selectedObjectField];
+            scope.selectedObject = extractValue(value,scope.selectedObjectField);
           }
           else{
             scope.selectedObject = value;
