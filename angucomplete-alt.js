@@ -50,7 +50,7 @@
             '<div class="angucomplete-holder input-field" ng-class="{\'angucomplete-dropdown-visible\': showDropdown}">' +
             '  <input id="{{id}}_value" name="{{inputName}}" ng-class="{\'angucomplete-input-not-empty\': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="{{inputType}}" maxlength="{{maxlength}}" ng-focus="onFocusHandler()" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)" ng-required="required"> ' +
             '<label>{{placeholder}}</label>' +
-            '<div class="bar"></bar>' +
+            '<div class="bar"></div>' +
             '  <div id="{{id}}_dropdown" class="angucomplete-dropdown" ng-show="showDropdown">' +
             '    <div class="angucomplete-searching" ng-show="searching" ng-bind="textSearching"></div>' +
             '    <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>' +
