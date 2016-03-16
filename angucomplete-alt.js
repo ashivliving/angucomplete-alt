@@ -48,7 +48,7 @@
         // Set the default template for this directive
         $templateCache.put(TEMPLATE_URL,
             '<div class="angucomplete-holder input-field" ng-class="{\'angucomplete-dropdown-visible\': showDropdown}">' +
-            '  <input id="{{id}}_value" name="{{inputName}}" ng-class="{\'angucomplete-input-not-empty\': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="{{inputType}}" maxlength="{{maxlength}}" ng-focus="onFocusHandler()" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)" ng-required="required"> ' +
+            '  <input id="{{id}}_value" name="{{inputName}}" ng-class="{\'angucomplete-input-not-empty\': notEmpty}" ng-model="searchStr" ng-disabled="disableInput" type="{{inputType}}" maxlength="{{maxlength}}" ng-focus="onFocusHandler()" class="{{inputClass}}" ng-focus="resetHideResults()" ng-blur="hideResults($event)" autocapitalize="off" autocorrect="off" autocomplete="off" ng-change="inputChangeHandler(searchStr)" ng-required="required" input-label-fix> ' +
             '<label>{{placeholder}}</label>' +
             '<div class="bar"></div>' +
             '  <div id="{{id}}_dropdown" class="angucomplete-dropdown" ng-show="showDropdown">' +
@@ -94,7 +94,6 @@
                     mousedownOn = event.target.className;
                 }
             });
-            console.log(scope.remoteUrlDataFilter);
 
             scope.currentIndex = scope.focusFirst ? 0 : null;
             scope.searching = false;
