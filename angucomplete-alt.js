@@ -445,9 +445,7 @@
                 cancelHttpRequest();
                 httpCanceller = $q.defer();
                 params.timeout = httpCanceller.promise;
-                $http.get(url, params)
-                    .success(httpSuccessCallbackGen(str))
-                    .error(httpErrorCallback);
+                $http.get(url, params).then(httpSuccessCallbackGen(str), httpErrorCallback);
             }
 
             function getRemoteResultsWithCustomHandler(str) {
