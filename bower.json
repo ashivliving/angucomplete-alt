@@ -26,10 +26,10 @@
     "tests"
   ],
   "dependencies": {
-    "angular": ">=1.2.0"
+    "angular": "https://github.com/angular/bower-angular.git#1.2.0"
   },
   "devDependencies": {
-    "angular-mocks": ">=1.2.0",
-    "jquery": "~2.1.0"
+    "angular-mocks": "https://github.com/angular/bower-angular-mocks.git#1.2.0",
+    "jquery": "https://github.com/jquery/jquery-dist.git#2.1.0"
   }
 }
